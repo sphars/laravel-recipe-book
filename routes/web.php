@@ -83,6 +83,12 @@ Route::group(['prefix' => 'manage', 'as' => 'manage.'], function(){
             'uses' => 'CategoryController@postCategoryManageEdit',
             'as' => 'update'
         ]);
+
+        // category delete (get) (manage.category.delete)
+        Route::get('delete/{id}', [
+            'uses' => 'CategoryController@getCategoryManageDelete',
+            'as' => 'delete'
+        ]);
     });
 
 });

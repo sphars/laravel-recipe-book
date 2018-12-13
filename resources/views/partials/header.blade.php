@@ -16,6 +16,9 @@
             <li class="nav-item">
                 <a href="{{ route('about') }}" class="nav-link">About</a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('manage.index') }}" class="nav-link">Manage</a>
+            </li>
         </ul>
         {{-- <div class="navbar-nav">
             @if (!Auth::check())

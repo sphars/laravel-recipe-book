@@ -44,7 +44,7 @@ class CategoryController extends Controller
             'name' => $request->input('name')
         ]);
         $category->save();
-        return redirect()->route('manage.category.index')->with('info', $category->name . ' created.');
+        return redirect()->route('manage.category.index')->with('info', 'Category ' . $category->name . ' created.');
     }
 
     // update
@@ -58,7 +58,15 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->save();
 
-        return redirect()->route('manage.category.index')->with('info', $category->name . ' updated.');
+        return redirect()->route('manage.category.index')->with('info', 'Category ' . $category->name . ' updated.');
+    }
+
+    // delete
+    public function getCategoryManageDelete($id){
+        $category = Category::find($id);
+        $category->recipes()->detach();
+        $category->delete();
+        return redirect()->route('manage.category.index')->with('info', 'Category ' . $category->name . ' deleted.');
     }
 
 }

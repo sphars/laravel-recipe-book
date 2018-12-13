@@ -15,7 +15,7 @@ Edit Category
                 <button class="btn btn-success" type="submit">Submit</button>
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $categoryId }}">
-                <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i>Delete</a>
+                <a href="{{ route('manage.category.delete', ['id' => $category->id]) }}" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i>Delete</a>
             </form>
         </div>
     </div>
