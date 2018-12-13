@@ -43,3 +43,23 @@ Route::get('category/{id}', [
     'uses' => 'CategoryController@getCategory',
     'as' => 'categories.category'
 ]);
+
+Route::group(['prefix' => 'manage', 'as' => 'manage.'], function(){
+    // manage index page
+    // called by route('manage.index')
+    Route::get('/', [
+        'uses' => 'ManageController@getManageIndex',
+        'as' => 'index'
+    ]);
+
+    // category management pages
+    Route::group(['prefix' => 'category', 'as' => 'category.'], function(){
+        // category index (get) (manage.category.index)
+        Route::get('/', [
+            'uses' => 'CategoryController@getCategoryManageIndex',
+            'as' => 'index'
+        ]);
+    });
+
+
+});
