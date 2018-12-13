@@ -59,6 +59,18 @@ Route::group(['prefix' => 'manage', 'as' => 'manage.'], function(){
             'uses' => 'CategoryController@getCategoryManageIndex',
             'as' => 'index'
         ]);
+
+        // category new (get) (manage.category.new)
+        Route::get('new', [
+            'uses' => 'CategoryController@getCategoryManageNew',
+            'as' => 'new'
+        ]);
+
+        // category edit (get) (manage.category.edit)
+        Route::get('edit/{id}', [
+            'uses' => 'CategoryController@getCategoryManageEdit',
+            'as' => 'edit'
+        ]);
     });
 
 

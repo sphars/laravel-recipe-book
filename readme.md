@@ -19,3 +19,9 @@ Create the database tables and seed it by running `php artisan migrate:refresh -
 
 ## Running the Application
 Run the application by running `php artisan serve` from a command prompt while in the root directory of the project.
+
+### Credits and Resources
+[Laravel Framework](https://laravel.com/)  
+[Bootstrap](https://getbootstrap.com/)  
+[Font Awesome](https://fontawesome.com/)  
+[Favicon.io](https://favicon.io)
