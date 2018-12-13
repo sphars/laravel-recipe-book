@@ -77,7 +77,12 @@ Route::group(['prefix' => 'manage', 'as' => 'manage.'], function(){
             'uses' => 'CategoryController@getCategoryManageEdit',
             'as' => 'edit'
         ]);
-    });
 
+        // category edit (post) (manage.category.update)
+        Route::post('edit', [
+            'uses' => 'CategoryController@postCategoryManageEdit',
+            'as' => 'update'
+        ]);
+    });
 
 });

@@ -19,7 +19,7 @@ class CategoryController extends Controller
         return view('categories.category', ['category' => $category]);
     }
 
-    # manage functions for category
+    # GET manage functions for category
     public function getCategoryManageIndex(){
         $categories = Category::orderBy('name', 'asc')->get();
         return view('manage.category.index', ['categories' => $categories]);
@@ -34,16 +34,31 @@ class CategoryController extends Controller
         return view('manage.category.edit', ['category' => $category, 'categoryId' => $id]);
     }
 
+    // POST functions
+    // create
     public function postCategoryManageNew(Request $request){
         $this->validate($request,[
             'name' => 'required'
         ]);
-
         $category = new Category([
             'name' => $request->input('name')
         ]);
-
         $category->save();
-        return redirect()->route('manage.category.index');
+        return redirect()->route('manage.category.index')->with('info', $category->name . ' created.');
     }
+
+    // update
+    public function postCategoryManageEdit(Request $request){
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        $category = new Category();
+        $category = Category::find($request->input('id'));
+        $category->name = $request->input('name');
+        $category->save();
+
+        return redirect()->route('manage.category.index')->with('info', $category->name . ' updated.');
+    }
+
 }
