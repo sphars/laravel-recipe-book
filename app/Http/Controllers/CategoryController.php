@@ -33,4 +33,17 @@ class CategoryController extends Controller
         $category = Category::where('id', '=', $id)->first();
         return view('manage.category.edit', ['category' => $category, 'categoryId' => $id]);
     }
+
+    public function postCategoryManageNew(Request $request){
+        $this->validate($request,[
+            'name' => 'required'
+        ]);
+
+        $category = new Category([
+            'name' => $request->input('name')
+        ]);
+
+        $category->save();
+        return redirect()->route('manage.category.index');
+    }
 }

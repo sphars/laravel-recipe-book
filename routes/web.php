@@ -66,6 +66,12 @@ Route::group(['prefix' => 'manage', 'as' => 'manage.'], function(){
             'as' => 'new'
         ]);
 
+        // category new (post) (manage.category.new)
+        Route::post('new', [
+            'uses' => 'CategoryController@postCategoryManageNew',
+            'as' => 'new'
+        ]);
+
         // category edit (get) (manage.category.edit)
         Route::get('edit/{id}', [
             'uses' => 'CategoryController@getCategoryManageEdit',
