@@ -3,23 +3,22 @@
 Recipes
 @endsection
 @section('content')
-    <h1 class="text-center">Recipes</h1>
+    <h1 class="my-4 text-center">Recipes</h1>
     @if (isset($recipes))
     <div class="row">
         @foreach ($recipes as $recipe)
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="card my-2">
-                <img class="book-image card-img-top" src="https://fakeimg.pl/400/282828/?text={{ $recipe->title }}" alt="{{ $recipe->title }}">
                 <div class="card-body">
-                    <h5 class="card-title book-title">{{ $recipe->title }}</h5>
-                    <p class="card-text book-author">{{ $recipe->author }}</p>
-                    <p class="card-text book-genres">
+                    <h5 class="card-title">{{ $recipe->title }}</h5>
+                    <p class="card-text">{{ $recipe->author }}</p>
+                    <p class="card-text">
                         @foreach ($recipe->categories as $category)
-                            <a href="#" class="badge badge-secondary">{{ $category->name }}</a>
+                    <a href="{{ route('categories.category', ['id' => $category->id]) }}" class="btn btn-sm btn-info">{{ $category->name }}</a>
                         @endforeach
                     </p>
-                    <div class="text-center my-2">
-                        <a href="{{ route('recipes.recipe', ['id' => $recipe->id]) }}" class="btn btn-outline-info">View</a>
+                    <div class="text-center mt-2 mb-0">
+                        <a href="{{ route('recipes.recipe', ['id' => $recipe->id]) }}" class="btn btn-primary">View</a>
                         {{-- @if (Auth::check())
                         <a href="{{route('admin.edit', ['id' => $book->id]) }}" class="btn btn-outline-danger">Edit</a>
                         @endif --}}

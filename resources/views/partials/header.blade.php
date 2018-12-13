@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a href="{{ route('home') }}" class="navbar-brand">Laravel Recipe Book</a>
+    <a href="{{ route('home') }}" class="navbar-brand">
+        <img src="{{ URL::to('images/logo.png') }}" alt="Cooking" width="30" height="30">
+        Laravel Recipe Book</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,6 +9,9 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a href="{{ route('recipes.index') }}" class="nav-link">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('categories.index') }}" class="nav-link">Categories</a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('about') }}" class="nav-link">About</a>

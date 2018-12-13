@@ -31,3 +31,15 @@ Route::get('recipe/{id}', [
     'uses' => 'RecipeController@getRecipe',
     'as' => 'recipes.recipe'
 ]);
+
+// Categories index page
+Route::get('categories', [
+    'uses' => 'CategoryController@getCategoriesIndex',
+    'as' => 'categories.index'
+]);
+
+// Single category
+Route::get('category/{id}', [
+    'uses' => 'CategoryController@getCategory',
+    'as' => 'categories.category'
+]);

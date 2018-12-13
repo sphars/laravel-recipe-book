@@ -11,7 +11,10 @@ class RecipeController extends Controller
 {
     //home page
     public function getIndex(){
-        return view('index');
+        $totalRecipes = Recipe::all()->count(); //get amount of recipes
+        $randId = rand(1, $totalRecipes); //pick random id
+        $recipe = Recipe::find($randId);
+        return view('index', ['recipe' => $recipe]);
     }
 
     public function getRecipesIndex(){
