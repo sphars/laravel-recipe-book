@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'RecipeController@getIndex',
+    'as' => 'home'
+]);
+
+Route::get('about', function(){
+    return view('other.about');
+})->name('about');
+
+// Recipes index page
+Route::get('recipes', [
+    'uses' => 'RecipeController@getRecipesIndex',
+    'as' => 'recipes.index'
+]);
+
+// Single recipe
+Route::get('recipe/{id}', [
+    'uses' => 'RecipeController@getRecipe',
+    'as' => 'recipes.recipe'
+]);
