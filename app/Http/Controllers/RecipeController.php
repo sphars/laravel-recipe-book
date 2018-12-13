@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
-    //home page
+    //site home page
     public function getIndex(){
         $totalRecipes = Recipe::all()->count(); //get amount of recipes
         $randId = rand(1, $totalRecipes); //pick random id
