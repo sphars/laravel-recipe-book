@@ -20,14 +20,14 @@
                 @endforeach
             </p>
             <h3>Ingredients</h3>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled pl-4">
                 @foreach (explode("\n", $recipe->ingredients) as $ingredient)
                 <li>{{ $ingredient }}</li>
                 @endforeach
             </ul>
 
             <h3>Instructions</h3>
-            <ol>
+            <ol class="">
                 @foreach (explode("\n", $recipe->instructions) as $instruction)
                 <li>{{ $instruction }}</li>
                 @endforeach

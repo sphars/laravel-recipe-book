@@ -44,5 +44,15 @@ class RecipeTableSeeder extends Seeder
             ]);
         $recipe->save();
         $recipe->categories()->sync([4, 5]);
+
+        $recipe = new Recipe([
+            'title' => "Luft-Waffles",
+            'author' => "Alton Brown",
+            'description' => "Light and fluffy goodness for your breakfast.",
+            'ingredients' => "2 cups All-purpose flour\n1 tsp. Baking powder\n1/2 tsp. Baking soda\n1 tsp. Salt\n4 tbsp. Unsalted butter, melted and cooled\n3 large eggs\n2 cups Buttermilk (room temperature)\n3 tbsp. Sugar",
+            'instructions' => "Coat waffle iron with nonstick cooking spray and preheat it.\nSift together the dry ingredients.\nWhisk the butter and eggs, then mix remainder of wet ingredients.\nSet batter aside for 5 minutes (or refrigerate up to an hour).\nLadle 2 scoops of batter onto waffle iron and spread lightly.\nClose iron and cook until waffle is golden and crisp on both sides.\nServe with plenty of butter and maple syrup.",
+            ]);
+        $recipe->save();
+        $recipe->categories()->sync([6]);
     }
 }

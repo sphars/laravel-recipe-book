@@ -18,7 +18,7 @@ class RecipeController extends Controller
     }
 
     public function getRecipesIndex(){
-        $recipes = Recipe::orderBy('title', 'asc')->paginate(3);
+        $recipes = Recipe::orderBy('title', 'asc')->paginate(6);
         return view('recipes.index', ['recipes' => $recipes]);
     }
 
@@ -36,14 +36,14 @@ class RecipeController extends Controller
 
     // new
     public function getRecipeManageNew(){
-        $categories = Category::all();
+        $categories = Category::orderBy('name', 'asc')->get();
         return view('manage.recipe.new', ['categories' => $categories]);
     }
 
     // edit
     public function getRecipeManageEdit($id){
         $recipe = Recipe::where('id', '=', $id)->first();
-        $categories = Category::all();
+        $categories = Category::orderBy('name', 'asc')->get();
         return view('manage.recipe.edit', ['recipe' => $recipe, 'recipeId' => $id, 'categories' => $categories]);
     }
 
