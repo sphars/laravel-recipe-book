@@ -12,7 +12,7 @@
     </head>
     <body>
         @include('partials.header')
-        <div class="container mb-3">
+        <div class="container py-3">
             @yield('content')
         </div>
         @include('partials.footer')

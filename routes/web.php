@@ -135,5 +135,3 @@ Route::group(['prefix' => 'manage', 'as' => 'manage.'], function(){
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

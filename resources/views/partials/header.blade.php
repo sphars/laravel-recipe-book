@@ -16,19 +16,16 @@
             <li class="nav-item">
                 <a href="{{ route('about') }}" class="nav-link">About</a>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('manage.index') }}" class="nav-link">Manage</a>
-            </li>
         </ul>
-        {{-- <div class="navbar-nav">
+        <div class="navbar-nav">
             @if (!Auth::check())
             <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
             <a href="{{ url('/register') }}" class="nav-item nav-link">Register</a>
             @else
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">Admin</a>
+                <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">Manage</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="{{ route('admin.index') }}" class="dropdown-item">Posts</a>
+                    <a href="{{ route('manage.index') }}" class="dropdown-item">Manage</a>
                     <a href="{{ url('/logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
                     <form action="{{ url('/logout') }}" id="logout-form" method="POST">
                         {{ csrf_field() }}
@@ -36,6 +33,6 @@
                 </div>
             </div>
             @endif
-        </div> --}}
+        </div>
     </div>
 </nav>
