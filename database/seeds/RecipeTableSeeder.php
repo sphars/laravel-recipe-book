@@ -54,5 +54,15 @@ class RecipeTableSeeder extends Seeder
             ]);
         $recipe->save();
         $recipe->categories()->sync([6]);
+
+        $recipe = new Recipe([
+            'title' => "Libby's Pumpkin Pie",
+            'author' => "Libby",
+            'description' => "The tried and true best pumpkin pie recipe, from Libby herself.",
+            'ingredients' => "3/4 cup granulated sugar (start with 1/2 cup then add to taste)\n1 tsp. ground cinnamon\n1/2 tsp. salt\n1/2 tsp. ground ginger\n1/4 tsp. ground cloves\n1/2 tsp. pumpkin spice\n2 large eggs\n1 can (15 oz.) LIBBY'S® 100% Pure Pumpkin\n1 can (12 fl. oz.) Evaporated Milk\n1 unbaked 9-inch (4-cup volume) deep-dish pie shell\nWhipped cream (optional)",
+            'instructions' => "Mix sugar, cinnamon, salt, ginger and cloves in small bowl. Beat eggs in large bowl. Stir in pumpkin and sugar-spice mixture. Gradually stir in evaporated milk.\n(Optional) Blind bake the pie shell for 15 minutes.\nPour mixture into pie shell.\nBake in preheated 425° F oven for 15 minutes. Reduce temperature to 350° F; bake for 40 to 50 minutes or until knife inserted near center comes out clean.\nCool on wire rack for 2 hours. Serve immediately or refrigerate.\nTop with whipped cream before serving."
+        ]);
+        $recipe->save();
+        $recipe->categories()->sync([3]);
     }
 }
