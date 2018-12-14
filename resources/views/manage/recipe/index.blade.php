@@ -21,15 +21,20 @@ Recipe Management
     </div>
     @endif
     <div class="row">
-        <div class="col">
-            <div class="my-3">
+        <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
+            <div class="my-3 d-flex justify-content-end">
                 <a href="{{ route('manage.recipe.new') }}" class="btn btn-success"><i class="fas fa-plus mr-2"></i> Add New Recipe</a>
             </div>
-            <ul class="list-unstyled">
-            @foreach ($recipes as $recipe)
-                <li><a href="{{ route('manage.recipe.edit', ['id' => $recipe->id]) }}">{{ $recipe->title }}</a></li>
-            @endforeach
-            </ul>
+            <div class="list-group mb-3">
+                @foreach ($recipes as $recipe)
+                <a href="{{ route('manage.recipe.edit', ['id' => $recipe->id]) }}" class="list-group-item list-group-action">{{ $recipe->title }}</a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            {{$recipes->links()}}
         </div>
     </div>
 

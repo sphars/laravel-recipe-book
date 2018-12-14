@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function getCategoriesIndex(){
-        $categories = Category::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->paginate(8);
         return view('categories.index', ['categories' => $categories]);
     }
 
@@ -22,7 +22,7 @@ class CategoryController extends Controller
     // GET manage functions for category
     // index
     public function getCategoryManageIndex(){
-        $categories = Category::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->paginate(8);
         return view('manage.category.index', ['categories' => $categories]);
     }
 

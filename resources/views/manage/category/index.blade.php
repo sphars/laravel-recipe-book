@@ -21,15 +21,20 @@ Category Management
     </div>
     @endif
     <div class="row">
-        <div class="col">
-            <div class="my-3">
+        <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
+            <div class="my-3 d-flex justify-content-end">
                 <a href="{{ route('manage.category.new') }}" class="btn btn-success"><i class="fas fa-plus mr-2"></i> Add New Category</a>
             </div>
-            <ul class="list-unstyled">
-            @foreach ($categories as $category)
-                <li><a href="{{ route('manage.category.edit', ['id' => $category->id]) }}">{{ $category->name }}</a></li>
-            @endforeach
-            </ul>
+            <div class="list-group mb-3">
+                @foreach ($categories as $category)
+                <a href="{{ route('manage.category.edit', ['id' => $category->id]) }}" class="list-group-item list-group-action">{{ $category->name }}</a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            {{$categories->links()}}
         </div>
     </div>
 

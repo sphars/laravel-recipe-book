@@ -30,7 +30,7 @@ class RecipeController extends Controller
     // GET manage functions for recipe
     // index
     public function getRecipeManageIndex(){
-        $recipes = Recipe::orderBy('created_at', 'desc')->get();
+        $recipes = Recipe::orderBy('created_at', 'desc')->paginate(6);
         return view('manage.recipe.index', ['recipes' => $recipes]);
     }
 
