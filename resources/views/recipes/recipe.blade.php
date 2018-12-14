@@ -13,7 +13,7 @@
                 Author: {{ $recipe->author }}<br>
                 Date: {{ date("m/d/Y", strtotime($recipe->created_at)) }}
             </p>
-            <p>Description: {{ $recipe->description }}</p>
+            <p>{{ $recipe->description }}</p>
             <p>
                 @foreach ($recipe->categories as $category)
                 <a href="{{ route('categories.category', ['id'=>$category->id]) }}" class="btn btn-sm btn-info">{{ $category->name }}</a>

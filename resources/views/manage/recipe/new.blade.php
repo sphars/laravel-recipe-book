@@ -22,7 +22,7 @@ Edit Recipe
                 </div>
                 <div class="form-group">
                     <label for="categories">Categories</label><a href="{{ route('manage.category.new') }}" class="btn btn-sm btn-success ml-2"><i class="fas fa-plus mr-1"></i> Add</a>
-                    <select class="form-control" id="categories" multiple>
+                    <select class="form-control" id="categories" multiple name="categories[]">
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach

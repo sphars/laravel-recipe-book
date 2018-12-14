@@ -23,5 +23,8 @@ class CategoryTableSeeder extends Seeder
 
         $cat = new Category(['name' => 'Italian']);
         $cat->save();
+
+        $cat = new Category(['name' => 'Dinner']);
+        $cat->save();
     }
 }

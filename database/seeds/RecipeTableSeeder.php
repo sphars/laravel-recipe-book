@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Recipe;
+use App\Category;
 
 class RecipeTableSeeder extends Seeder
 {
@@ -12,14 +13,36 @@ class RecipeTableSeeder extends Seeder
      */
     public function run()
     {
+        $categories = Category::all();
+
         $recipe = new Recipe([
-            'title' => 'Easy Queso Dip',
-            'author' => 'Spencer Harston',
-            'description' => 'The easiest queso dip recipe you will ever need.',
-            'ingredients' => '16 oz. Velveeta*1 can Rotel Tomatoes',
-            'instructions' => 'Add Velveeta cheese and Rotel tomatoes to a pot and heat on stove.*Stir over medium heat for 5 minutes until cheese is melted and well-combined.*Remove from heat (or turn to low) and serve warm with tortilla chips.'
+            'title' => "Easy Queso Dip",
+            'author' => "Spencer Harston",
+            'description' => "The easiest queso dip recipe you will ever need.",
+            'ingredients' => "16 oz. Velveeta\n1 can Rotel Tomatoes",
+            'instructions' => "Add Velveeta cheese and Rotel tomatoes to a pot and heat on stove.\nStir over medium heat for 5 minutes until cheese is melted and well-combined.\nRemove from heat (or turn to low) and serve warm with tortilla chips."
             ]);
         $recipe->save();
         $recipe->categories()->sync([1, 2]);
+
+        $recipe = new Recipe([
+            'title' => "Chewy Chocolate Cookies",
+            'author' => "Mrs. Fields",
+            'description' => "Delicious chocolate cookies with chocolate chips.",
+            'ingredients' => "1 1/4 cups Butter\n2 cups Sugar\n2 Eggs\n 2 tsp. Vanilla Extract\n2 cups All-purpose Flour\n3/4 cups Cocoa\n1 tsp. Baking Soda\n1/2 tsp. Salt\n2 cups (12 oz. pkg.) Semi-Sweet Chocolate Chips",
+            'instructions' => "Heat oven to 350 degrees.\nIn large mixer bowl; cream butter and sugar until light and fluffy.\nAdd eggs and vanilla; beat well.\nCombine flour, cocoa, baking soda and salt; gradually blend into creamed mixture. Stir in peanut butter or chocolate chips.\nDrop by teaspoonfuls onto ungreased cookie sheet. Bake 8-9 minutes. (Do not overbake; cookies will be soft. They will puff while baking and flatten while cooling.).\nCool slightly; remove from cookie sheet onto wire rack. Cool completely."
+            ]);
+        $recipe->save();
+        $recipe->categories()->sync([3]);
+
+        $recipe = new Recipe([
+            'title' => "Mom's Spaghetti Sauce",
+            'author' => "Mom",
+            'description' => "Better than any jar you can buy.",
+            'ingredients' => "2 lbs. Hamburger\n1 can Tomato Soup\n1 can Cream of Mushroom Soup\n2 8 oz. cans tomato sauce\n1 can Diced Tomatoes\n1 pkg. Spaghetti Sauce Mix\n2 tbsp. Worcestershire Sauce\n1 med. Onion\n2 cubes Beef Bouillon\n1 bay leaf",
+            'instructions' => "Dice onion and cook with hamburger until browned and onion is translucent. Drain hamburger.\nAdd rest of ingredients and simmer for 15-20 minutes. Add water (from pasta) for desired thickness if necessary.\nRemove bay leaf before serving warm over pasta."
+            ]);
+        $recipe->save();
+        $recipe->categories()->sync([4, 5]);
     }
 }
