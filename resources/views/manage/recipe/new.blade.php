@@ -14,7 +14,7 @@ Edit Recipe
                 </div>
                 <div class="form-group">
                     <label for="author">Author</label>
-                    <input type="text" class="form-control" id="author" name="author">
+                    <input type="text" class="form-control" id="author" name="author" value="{{ Auth::user()->name }}">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
