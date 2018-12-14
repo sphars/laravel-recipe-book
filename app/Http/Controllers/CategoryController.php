@@ -19,19 +19,30 @@ class CategoryController extends Controller
         return view('categories.category', ['category' => $category]);
     }
 
-    # GET manage functions for category
+    // GET manage functions for category
+    // index
     public function getCategoryManageIndex(){
         $categories = Category::orderBy('name', 'asc')->get();
         return view('manage.category.index', ['categories' => $categories]);
     }
 
+    // new
     public function getCategoryManageNew(){
         return view('manage.category.new');
     }
 
+    // edit
     public function getCategoryManageEdit($id){
         $category = Category::where('id', '=', $id)->first();
         return view('manage.category.edit', ['category' => $category, 'categoryId' => $id]);
+    }
+
+    // delete
+    public function getCategoryManageDelete($id){
+        $category = Category::find($id);
+        $category->recipes()->detach();
+        $category->delete();
+        return redirect()->route('manage.category.index')->with('info', 'Category ' . $category->name . ' deleted.');
     }
 
     // POST functions
@@ -56,17 +67,8 @@ class CategoryController extends Controller
         $category = new Category();
         $category = Category::find($request->input('id'));
         $category->name = $request->input('name');
-        $category->save();
 
+        $category->save();
         return redirect()->route('manage.category.index')->with('info', 'Category ' . $category->name . ' updated.');
     }
-
-    // delete
-    public function getCategoryManageDelete($id){
-        $category = Category::find($id);
-        $category->recipes()->detach();
-        $category->delete();
-        return redirect()->route('manage.category.index')->with('info', 'Category ' . $category->name . ' deleted.');
-    }
-
 }

@@ -12,7 +12,7 @@ Management
         <div class="col">
             <div class="d-flex justify-content-around">
                 <a href="{{ route('manage.category.index') }}" class="btn btn-lg btn-primary">Manage Categories</a>
-                <a href="#" class="btn btn-lg btn-primary">Manage Recipes</a>
+                <a href="{{ route('manage.recipe.index') }}" class="btn btn-lg btn-primary">Manage Recipes</a>
             </div>
         </div>
     </div>
