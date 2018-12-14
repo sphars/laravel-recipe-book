@@ -18,6 +18,9 @@ DB_PASSWORD=''
 Create the database tables and seed it by running `php artisan migrate:refresh --seed` from a command prompt while in the root directory of the project.
 
 ## Running the Application
+
+__NOTE: I don't know how to package up the project with all the dependencies, or know of a way to restore the packages, a simple clone may not work!__  
+
 Run the application by running `php artisan serve` from a command prompt while in the root directory of the project.  
 
 In order to create and edit recipes, you must be logged in. You can register for an account by navigating to the Register page in the nav bar.
