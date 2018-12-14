@@ -23,7 +23,7 @@
             <a href="{{ url('/register') }}" class="nav-item nav-link">Register</a>
             @else
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">Manage</a>
+                <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">{{ Auth::user()->name }} </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="{{ route('manage.index') }}" class="dropdown-item">Manage</a>
                     <a href="{{ url('/logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>

@@ -44,7 +44,7 @@ Route::get('category/{id}', [
     'as' => 'categories.category'
 ]);
 
-Route::group(['prefix' => 'manage', 'as' => 'manage.'], function(){
+Route::group(['prefix' => 'manage', 'as' => 'manage.', 'middleware' => 'auth'], function(){
     // manage index page
     // called by route('manage.index')
     Route::get('/', [
