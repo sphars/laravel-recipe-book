@@ -19,9 +19,9 @@ Recipes
                     </p>
                     <div class="text-center mt-2 mb-0">
                         <a href="{{ route('recipes.recipe', ['id' => $recipe->id]) }}" class="btn btn-primary">View</a>
-                        {{-- @if (Auth::check())
-                        <a href="{{route('admin.edit', ['id' => $book->id]) }}" class="btn btn-outline-danger">Edit</a>
-                        @endif --}}
+                        @if (Auth::check())
+                        <a href="{{route('manage.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-outline-danger">Edit</a>
+                        @endif
                     </div>
                 </div>
             </div>
